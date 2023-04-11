@@ -18,20 +18,21 @@ Preencha aqui a URL para acesso ao site publicado
 
 #### Desenvolvedores
 
-Preencha aqui os nomes de participantes da dupla que desenvolveu o trabalho
+Leonardo Cargnin Krügel  
 
 
 #### Ambiente de desenvolvimento
 
-Preencha aqui uma lista detalhada de ferramentas de desenvolvimento usadas, por exemplo:
 - VS Code
-- Outras
+- Navegador Mozilla Firefox
 
 #### Créditos
 
 Preencha aqui uma lista detalhada de recursos aproveitados no projeto, por exemplo:
 - URL de tutoriais/vídeos consultados
 - Créditos para colegas que colaboraram
+- [GitHub API tutorial](https://codesnippet.io/github-api-tutorial/)  
+- [GitHub REST API](https://docs.github.com/en/rest)
 
 
 #### Bastidores
