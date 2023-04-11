@@ -1,76 +1,64 @@
-// Get the GitHub username input form
+// Pega input do form no html
 const gitHubForm = document.getElementById('gitHubForm');
 
-// Listen for submissions on GitHub username input form
+// Espera que o botão "submit" seja pressionado
 gitHubForm.addEventListener('submit', (e) => {
 
-    // Prevent default form submission action
-    e.preventDefault();
+  e.preventDefault();
 
-    // Get the GitHub username input field on the DOM
-    let usernameInput = document.getElementById('usernameInput');
+  // Pega o input do username e do repo do form
+  let usernameInput = document.getElementById('usernameInput');
+  let repoInput = document.getElementById('repositoryInput');
 
-    let repoInput = document.getElementById('repositoryInput');
+  // Pega o valor do nome do repo e do username
+  let gitHubUsername = usernameInput.value;
+  let gitHubRepo = repoInput.value;
 
-    // Get the value of the GitHub username input field
-    let gitHubUsername = usernameInput.value;
-    console.log(gitHubUsername)
+  // Faz request dos commits para api do GitHub
+  requestRepoCommits(gitHubUsername, gitHubRepo)
+    .then(response => response.json()) // Parse da resposta para json
+    .then(data => { // Atualiza o html com os dados da resposta
+        
+      // Caso não encontre o repo ou username atualiza o html com resposta de erro
+      if (data.message === "Not Found") {
+        let ul = document.getElementById('repoCommits');
 
-    let gitHubRepo = repoInput.value;
-    console.log(gitHubRepo)
+        let li = document.createElement('li');
 
-    // Run GitHub API function, passing in the GitHub username
-    requestRepoCommits(gitHubUsername, gitHubRepo)
-        .then(response => response.json()) // parse response into json
-        .then(data => {
-            // update html with data from github
+        li.classList.add('list-group-item')
+        li.innerHTML = (`
+          <p><strong>O usuário ${gitHubUsername} não possui o repositório ${gitHubRepo}.</p>
+        `);
 
-            if (data.message === "Not Found") {
-                let ul = document.getElementById('repoCommits');
+        ul.appendChild(li);
 
-                // Create variable that will create li's to be added to ul
-                let li = document.createElement('li');
+      } else {
+        for (let i in data) {
 
-                // Add Bootstrap list item class to each li
-                li.classList.add('list-group-item')
-                // Create the html markup for each li
-                li.innerHTML = (`
-            <p><strong>O usuário ${gitHubUsername} não possui o repositório ${gitHubRepo}.</p>`);
-                // Append each li to the ul
-                ul.appendChild(li);
-            }
+          let ul = document.getElementById('repoCommits');
 
-            for (let i in data) {
+          let li = document.createElement('li');     
 
-                    let ul = document.getElementById('repoCommits');
-
-                    // Create variable that will create li's to be added to ul
-                    let li = document.createElement('li');
-
-                    // Add Bootstrap list item class to each li
-                    li.classList.add('list-group-item')
-
-                    
-                    // Create the html markup for each li
-                    li.innerHTML = (`                
-                <p><strong>Autor: </strong> ${data[i].commit.author.name}</p>
-                <p><strong>Data: </strong> ${data[i].commit.author.date}</p>
-                <p><strong>Mensagem: </strong> ${data[i].commit.message}</p>
-                <a href="${data[i].commit.url}"><strong>URL commit</strong></a>
-            `);
-
-                    // Append each li to the ul
-                    ul.appendChild(li);
-            }
-        })
+          li.classList.add('list-group-item')
+          
+          li.innerHTML = (`                
+            <p><strong>Autor: </strong> ${data[i].commit.author.name}</p>
+            <p><strong>Data: </strong> ${data[i].commit.author.date}</p>
+            <p><strong>Mensagem: </strong> ${data[i].commit.message}</p>
+            <a href="${data[i].commit.url}"><strong>URL commit</strong></a>
+          `);
+                
+            ul.appendChild(li);
+        }
+      }
+    })
 
 })
 
-function requestUserRepos(username) {
-    // create a variable to hold the `Promise` returned from `fetch`
-    return Promise.resolve(fetch(`https://api.github.com/users/${username}/repos`));
+async function requestUserRepos(username) {
+  return await fetch(`https://api.github.com/users/${username}/repos`);
 }
 
 async function requestRepoCommits(username, repo) {
-    return await fetch(`https://api.github.com/repos/${username}/${repo}/commits`);
+  return await fetch(`https://api.github.com/repos/${username}/${repo}/commits`);
 }
