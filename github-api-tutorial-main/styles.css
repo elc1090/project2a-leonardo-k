@@ -1,0 +1,31 @@
+#header {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  align-items: center;
+  height: 145px;
+}
+
+#header img {
+  width: 85px;
+}
+
+#header h1 {
+  font-size: 52px;
+}
+
+#gitHubForm {
+  width: 300px;
+}
+
+#submitButton {
+  background-color: rgb(135, 135, 135);
+  border: solid rgb(135, 135, 135);
+}
+
+#repoCommits {
+  width: 500px;
+}
+
+#alert {
+  width: 300px;
+}
