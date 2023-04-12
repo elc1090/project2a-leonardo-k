@@ -14,44 +14,70 @@ gitHubForm.addEventListener('submit', (e) => {
   let gitHubUsername = usernameInput.value;
   let gitHubRepo = repoInput.value;
 
-  // Faz request dos commits para api do GitHub
-  requestRepoCommits(gitHubUsername, gitHubRepo)
-    .then(response => response.json()) // Parse da resposta para json
-    .then(data => { // Atualiza o html com os dados da resposta
-        
-      // Caso não encontre o repo ou username atualiza o html com resposta de erro
-      if (data.message === "Not Found") {
-        let ul = document.getElementById('repoCommits');
+  // Checa por campos vazios no forms
+  if(!gitHubUsername) {
+    let alert = document.getElementById('alert')
+    alert.style.display = 'block';
 
-        let li = document.createElement('li');
+    let alertMessage = document.createElement('alertMessage');
+    alertMessage.innerHTML = (`
+        <p style:"text-align: center"> <strong>Precisa informar um username.
+        </strong></p>
+    `)
+    alert.appendChild(alertMessage)
 
-        li.classList.add('list-group-item')
-        li.innerHTML = (`
-          <p><strong>O usuário ${gitHubUsername} não possui o repositório ${gitHubRepo}.</p>
-        `);
+  } else if(!gitHubRepo) {
+    let alert = document.getElementById('alert')
+    alert.style.display = 'block';
 
-        ul.appendChild(li);
+    let alertMessage = document.createElement('alertMessage');
+    alertMessage.innerHTML = (`
+        <p style:"text-align: center"> </strong>Precisa informar um repositório.
+        </strong></p>
+    `)
+    alert.appendChild(alertMessage)
 
-      } else {
-        for (let i in data) {
+  } else {
 
+    // Faz request dos commits para api do GitHub
+    requestRepoCommits(gitHubUsername, gitHubRepo)
+      .then(response => response.json()) // Parse da resposta para json
+      .then(data => { // Atualiza o html com os dados da resposta
+          
+        // Caso não encontre o repo ou username atualiza o html com resposta de erro
+        if (data.message === "Not Found") {
           let ul = document.getElementById('repoCommits');
 
-          let li = document.createElement('li');     
+          let li = document.createElement('li');
 
           li.classList.add('list-group-item')
-          
-          li.innerHTML = (`                
-            <p><strong>Autor: </strong> ${data[i].commit.author.name}</p>
-            <p><strong>Data: </strong> ${data[i].commit.author.date}</p>
-            <p><strong>Mensagem: </strong> ${data[i].commit.message}</p>
-            <a href="${data[i].commit.url}"><strong>URL commit</strong></a>
+          li.innerHTML = (`
+            <p><strong>O usuário ${gitHubUsername} não possui o repositório ${gitHubRepo}.</p>
           `);
-                
-            ul.appendChild(li);
+
+          ul.appendChild(li);
+
+        } else {
+          for (let i in data) {
+
+            let ul = document.getElementById('repoCommits');
+
+            let li = document.createElement('li');     
+
+            li.classList.add('list-group-item')
+            
+            li.innerHTML = (`
+              <p><strong> ${data[i].sha.slice(0,7)}</strong></p>
+              <p><strong>Autor: </strong> ${data[i].commit.author.name}</p>
+              <p><strong>Data: </strong> ${data[i].commit.author.date}</p>
+              <p><strong>Mensagem: </strong> ${data[i].commit.message}</p>
+            `);
+            
+              ul.appendChild(li);
+          }
         }
-      }
-    })
+      })
+    }
 
 })
 
