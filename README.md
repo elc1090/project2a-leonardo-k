@@ -4,7 +4,7 @@
 
 ### Daploy
 
-Preencha aqui a URL para acesso ao site publicado
+[Link](https://elc1090.github.io/project2a-leonardo-k/)  
 
 
 ### Desenvolvedor
