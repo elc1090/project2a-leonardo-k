@@ -1,46 +1,31 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10827173&assignment_repo_type=AssignmentRepo)
-# Projeto2a: GitHub API e DOM Manipulation
+# Projeto2a: GitHub API e DOM Manipulation  
+![Screenshot do projeto](github-api-tutorial-main/assets/print-tela-p2a.png).  
 
-> 1. Baixe este arquivo e edite o texto em formato Markdown conforme as instruções a seguir.
-> 2. Substitua todos os blocos "Preencha aqui" por informações do seu projeto. 
-> 3. Substitua a imagem por pelo menos um screenshot do projeto (arquivo pode ser armazenado no repositório ou em URL externa). GIFs animados também são permitidos!
-> 4. Remova todas as instruções de entrega.
-> 5. Double-check: Certifique-se de que seu README.md não contenha instruções de entrega!
-> 6. Entregue este README.md dentro da pasta raiz do repositório de entrega. 
-
-![Screenshot do projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto").
-
-
-#### Daploy
+### Daploy
 
 Preencha aqui a URL para acesso ao site publicado
 
 
-#### Desenvolvedores
+### Desenvolvedor
 
 Leonardo Cargnin Krügel  
 
 
-#### Ambiente de desenvolvimento
+### Ambiente de desenvolvimento
 
 - VS Code
-- Navegador Mozilla Firefox
+- Navegador Mozilla Firefox / Google Chrome
 
-#### Créditos
-
-Preencha aqui uma lista detalhada de recursos aproveitados no projeto, por exemplo:
-- URL de tutoriais/vídeos consultados
-- Créditos para colegas que colaboraram
+### Créditos  
 - [GitHub API tutorial](https://codesnippet.io/github-api-tutorial/)  
 - [GitHub REST API](https://docs.github.com/en/rest)
+- [W3 School: Bootstrap](https://www.w3schools.com/bootstrap/)
 
 
-#### Bastidores
+### Bastidores  
 
-
-Preencha aqui um breve relato dos bastidores da realização deste exercício, com uma parte focada no trabalho em dupla e outra individual com impressões de cada participante.
-
-
+Eu achei a manipulação do DOM bastante intuitiva, seguindo o tutorial não tive muitos problemas para implementar uma função para fazer requisições à api. A parte que tive mais dificuldades foi em alterar a aparência, primeiro por não ter muitas ideias, segundo na implementação das ideias que tive, mas sinto que lendo um pouco mais sobre bootstrap e css e seguindo com as práticas vou melhorar tanto nas ideias quanto na implementação dessas.  
 
 ---
 Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2023a) em 2023a
