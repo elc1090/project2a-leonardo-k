@@ -2,7 +2,7 @@
 # Projeto2a: GitHub API e DOM Manipulation  
 ![Screenshot do projeto](github-api-tutorial-main/assets/print-tela-p2a.png).  
 
-### Daploy
+### Deploy
 
 [Link](https://elc1090.github.io/project2a-leonardo-k/)  
 
@@ -25,7 +25,9 @@ Leonardo Cargnin Krügel
 
 ### Bastidores  
 
-Eu achei a manipulação do DOM bastante intuitiva, seguindo o tutorial não tive muitos problemas para implementar uma função para fazer requisições à api. A parte que tive mais dificuldades foi em alterar a aparência, primeiro por não ter muitas ideias, segundo na implementação das ideias que tive, mas sinto que lendo um pouco mais sobre bootstrap e css e seguindo com as práticas vou melhorar tanto nas ideias quanto na implementação dessas.  
+Eu achei a manipulação do DOM bastante intuitiva, seguindo o tutorial não tive muitos problemas para implementar uma função para fazer requisições à api.  
+
+A parte que tive mais dificuldades foi em alterar a aparência, primeiro por não ter muitas ideias, segundo na implementação das ideias que tive, mas sinto que lendo um pouco mais sobre bootstrap e css e seguindo com as práticas vou melhorar tanto nas ideias quanto na implementação dessas.  
 
 ---
 Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2023a) em 2023a
